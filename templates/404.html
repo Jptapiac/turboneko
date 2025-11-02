@@ -1,0 +1,76 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Página no encontrada{% endblock %}
+
+{% block extra_css %}
+<style>
+  body {
+    background: radial-gradient(circle at top, #2a0500, #000);
+    color: #fff;
+  }
+
+  .error-container {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .error-code {
+    font-size: 6rem;
+    font-weight: 700;
+    color: #ff4500;
+    text-shadow: 0 0 30px rgba(255, 70, 0, 0.7);
+    margin-bottom: 0.5rem;
+  }
+
+  .error-message {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+
+  .error-subtext {
+    color: #bbb;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .error-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: #ff4500;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .error-btn:hover {
+    background-color: #ff6333;
+    transform: scale(1.05);
+  }
+
+  img {
+    max-width: 250px;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 0 10px rgba(255, 70, 0, 0.5));
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="error-container">
+  <div class="error-code">404</div>
+  <div class="error-message">Página no encontrada</div>
+  <div class="error-subtext">
+    Lo sentimos, la página que estás buscando no existe o fue movida.
+  </div>
+  <a href="{% url 'home' %}" class="error-btn">Volver al inicio</a>
+</div>
+{% endblock %}

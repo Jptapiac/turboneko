@@ -13,7 +13,7 @@ def blog(request):
     return render(request, 'core/blog.html')
 
 def tienda(request):
-    # Galería de imágenes simple (cumple 4 secciones y “redes sociales” en footer)
+    # Galería de imágenes simple (cumple 4 secciones y "redes sociales" en footer)
     return render(request, 'core/tienda.html')
 
 def faq(request):

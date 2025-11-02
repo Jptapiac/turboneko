@@ -8,6 +8,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),  # todas las vistas públicas en core
     path('animatronics/', include('animatronics.urls')),
+    path('contacto/', include('contract.urls')),
 ]
 
 if settings.DEBUG:

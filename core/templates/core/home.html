@@ -1,0 +1,181 @@
+{% extends "core/base.html" %} {% load static %} {% block title %}Home ·
+turboneko{% endblock %} {% block content %}
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-bs-target="#myCarousel"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#myCarousel"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#myCarousel"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+  </div>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img
+        src="{% static 'imagenes/banner1.jpeg' %}"
+        class="d-block w-100"
+        alt="Juego destacado 1"
+      />
+      <div class="container">
+        <div class="carousel-caption text-start"></div>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <img
+        src="{% static 'imagenes/banner2.jpg' %}"
+        class="d-block w-100"
+        alt="Juego destacado 2"
+      />
+      <div class="container">
+        <div class="carousel-caption"></div>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <img
+        src="{% static 'imagenes/banner3.jpeg' %}"
+        class="d-block w-100"
+        alt="Juego destacado 3"
+      />
+      <div class="container">
+        <div class="carousel-caption text-end"></div>
+      </div>
+    </div>
+  </div>
+
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#myCarousel"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Anterior</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#myCarousel"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Siguiente</span>
+  </button>
+</div>
+
+<div class="container marketing">
+  <div class="row">
+    <!-- Película 1 -->
+    <div class="col-lg-6 text-center">
+      <img
+        src="{% static 'imagenes/fnafP1.jpg' %}"
+        width="200"
+        height="280"
+        class="rounded mb-3 shadow-sm"
+        alt="FNAF 1"
+      />
+      <h2 class="fw-bold text-white">Five Nights at Freddy's (2023)</h2>
+      <p class="text-light">
+        Estrenada el <strong>27 de octubre de 2023</strong>. La primera película
+        de la saga producida por Blumhouse, dirigida por Emma Tammi.
+      </p>
+    </div>
+
+    <!-- Película 2 -->
+    <div class="col-lg-6 text-center">
+      <img
+        src="{% static 'imagenes/fnafP2.jpg' %}"
+        width="200"
+        height="280"
+        class="rounded mb-3 shadow-sm"
+        alt="FNAF 2"
+      />
+      <h2 class="fw-bold text-white">Five Nights at Freddy's 2</h2>
+      <span class="badge bg-danger mb-2">Próximamente</span>
+      <p class="text-light">
+        Estreno programado para el <strong>5 de diciembre de 2025</strong>. La
+        esperada secuela promete un tono más oscuro y nuevos animatrónicos.
+      </p>
+    </div>
+  </div>
+</div>
+
+<hr class="featurette-divider" />
+<div class="row featurette">
+  <div class="col-md-7">
+    <h2 class="featurette-heading">
+      Five Nights at Freddy's <span class="text-muted">TRÁILER</span>
+    </h2>
+    <p class="lead">
+      Estrenada el <strong>27 de octubre de 2023</strong>. Dirigida por Emma
+      Tammi y producida por Blumhouse, la primera película nos muestra a Mike
+      Schmidt como guardia nocturno en Freddy Fazbear’s Pizza, enfrentándose a
+      los animatrónicos embrujados y revelando el oscuro pasado de la pizzería.
+    </p>
+  </div>
+  <div class="col-md-5 d-flex justify-content-center align-items-center">
+    <video
+      class="img-fluid rounded"
+      width="500"
+      autoplay
+      muted
+      loop
+      playsinline
+      controls
+    >
+      <source
+        src="{% static 'imagenes/fnaf_trailer1.mp4' %}"
+        type="video/mp4"
+      />
+    </video>
+  </div>
+</div>
+
+<hr class="featurette-divider" />
+<div class="row featurette">
+  <div class="col-md-7">
+    <h2 class="featurette-heading">
+      Five Nights at Freddy's 2 <span class="text-muted">TRÁILER</span>
+    </h2>
+    <p class="lead">
+      Estreno programado para el <strong>5 de diciembre de 2025</strong>. La
+      esperada secuela profundiza en el lore, con nuevos animatrónicos y un tono
+      más oscuro. Retomará la historia de William Afton y expandirá el universo
+      cinematográfico basado en la popular saga de terror.
+    </p>
+  </div>
+  <div class="col-md-5 d-flex justify-content-center align-items-center">
+    <video
+      class="img-fluid rounded"
+      width="500"
+      autoplay
+      muted
+      loop
+      playsinline
+      controls
+    >
+      <source
+        src="{% static 'imagenes/fnaf_trailer2.mp4' %}"
+        type="video/mp4"
+      />
+    </video>
+  </div>
+</div>
+
+{% endblock %}

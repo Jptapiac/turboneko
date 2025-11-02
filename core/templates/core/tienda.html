@@ -1,0 +1,163 @@
+{% extends "core/base.html" %} {% load static %} {% block title %}Tienda FNAF ·
+turboneko{% endblock %} {% block content %}
+<div class="container py-5">
+  <h1 class="text-center mb-4" style="color: #fff">
+    Tienda de Five Nights at Freddy's
+  </h1>
+  <p class="text-center mb-5" style="color: #ddd">
+    Explora y adquiere los diferentes juegos de la saga FNAF directamente en
+    Steam.
+  </p>
+
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+    <!-- FNAF 1 -->
+    <div class="col">
+      <div class="card shadow-sm h-100">
+        <img
+          src="{% static 'imagenes/Five Nights at Freddy\'s 1.jpg' %}"
+          class="card-img-top"
+          alt="FNAF 1"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Five Nights at Freddy's 1</h5>
+          <p class="card-text">
+            El clásico que lo empezó todo en la pizzería de Freddy Fazbear.
+          </p>
+          <p class="fw-bold">CLP$ 2.400</p>
+          <a
+            href="https://store.steampowered.com/app/319510/Five_Nights_at_Freddys/"
+            target="_blank"
+            class="btn btn-danger w-100"
+            >Comprar en Steam</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- FNAF 2 -->
+    <div class="col">
+      <div class="card shadow-sm h-100">
+        <img
+          src="{% static 'imagenes/Five Nights at Freddy\'s 2.jpg' %}"
+          class="card-img-top"
+          alt="FNAF 2"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Five Nights at Freddy's 2</h5>
+          <p class="card-text">
+            Una precuela ambientada en 1987 con nuevos animatrónicos y más
+            terror.
+          </p>
+          <p class="fw-bold">CLP$ 3.800</p>
+          <a
+            href="https://store.steampowered.com/app/332800/Five_Nights_at_Freddys_2/"
+            target="_blank"
+            class="btn btn-danger w-100"
+            >Comprar en Steam</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- FNAF 3 -->
+    <div class="col">
+      <div class="card shadow-sm h-100">
+        <img
+          src="{% static 'imagenes/Five Nights at Freddy\'s 3.jpg' %}"
+          class="card-img-top"
+          alt="FNAF 3"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Five Nights at Freddy's 3</h5>
+          <p class="card-text">
+            30 años después, llega Fazbear’s Fright y la aparición de
+            Springtrap.
+          </p>
+          <p class="fw-bold">CLP$ 3.800</p>
+          <a
+            href="https://store.steampowered.com/app/354140/Five_Nights_at_Freddys_3/"
+            target="_blank"
+            class="btn btn-danger w-100"
+            >Comprar en Steam</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- FNAF 4 -->
+    <div class="col">
+      <div class="card shadow-sm h-100">
+        <img
+          src="{% static 'imagenes/Five Nights at Freddy\'s 4.jpg' %}"
+          class="card-img-top"
+          alt="FNAF 4"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Five Nights at Freddy's 4</h5>
+          <p class="card-text">
+            El terror psicológico en la habitación de un niño con pesadillas
+            animatrónicas.
+          </p>
+          <p class="fw-bold">CLP$ 3.800</p>
+          <a
+            href="https://store.steampowered.com/app/388090/Five_Nights_at_Freddys_4/"
+            target="_blank"
+            class="btn btn-danger w-100"
+            >Comprar en Steam</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Sister Location -->
+    <div class="col">
+      <div class="card shadow-sm h-100">
+        <img
+          src="{% static 'imagenes/Sister Location.jpg' %}"
+          class="card-img-top"
+          alt="Sister Location"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Sister Location</h5>
+          <p class="card-text">
+            Circus Baby y los animatrónicos más avanzados en un entorno
+            subterráneo.
+          </p>
+          <p class="fw-bold">CLP$ 3.800</p>
+          <a
+            href="https://store.steampowered.com/app/506610/Five_Nights_at_Freddys_Sister_Location/"
+            target="_blank"
+            class="btn btn-danger w-100"
+            >Comprar en Steam</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Security Breach -->
+    <div class="col">
+      <div class="card shadow-sm h-100">
+        <img
+          src="{% static 'imagenes/Security Breach.jpg' %}"
+          class="card-img-top"
+          alt="Security Breach"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Security Breach</h5>
+          <p class="card-text">
+            Un centro comercial, Glamrock animatrónicos y la huida de Gregory.
+          </p>
+          <p class="fw-bold">CLP$ 14.900</p>
+          <a
+            href="https://store.steampowered.com/app/747660/Five_Nights_at_Freddys_Security_Breach/"
+            target="_blank"
+            class="btn btn-danger w-100"
+            >Comprar en Steam</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
+</div>
+{% endblock %}

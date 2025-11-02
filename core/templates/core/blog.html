@@ -1,0 +1,387 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block title %}Películas · Five Nights at Freddy’s{% endblock %}
+
+{% block extra_css %}
+{{ block.super }}
+<style>
+  /* Marco tipo póster (doble borde blanco sobre fondo negro) */
+  .poster-frame {
+    display: inline-block;
+    background: #000;
+    padding: 6px;
+    border-radius: 6px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.6);
+  }
+  .poster-frame img {
+    display: block;
+    border: 6px solid #fff;
+    border-radius: 4px;
+  }
+
+  /* Estilo para las tarjetas de personajes */
+  .character-card {
+    background-color: rgba(0, 0, 0, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    text-align: center;
+  }
+  .character-card .card-body {
+    flex: 1;
+  }
+  .character-img {
+    max-height: 250px;
+    object-fit: contain;
+  }
+
+  /* Reparto: tarjetas pequeñas con imagen y nombre */
+  .cast-list { gap: .8rem; }
+  .cast-card {
+    width: 120px;
+    background: rgba(0,0,0,.6);
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: .5rem;
+    padding: .5rem;
+    text-align: center;
+    color: #fff;
+  }
+  .cast-img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: .35rem;
+    margin-bottom: .35rem;
+    display: block;
+  }
+  .cast-name { font-size: .9rem; font-weight: 600; }
+  .cast-role { font-size: .75rem; color: #ccc; }
+  @media (max-width: 576px) {
+    .cast-card { width: 95px; }
+    .cast-img { height: 90px; }
+  }
+
+  .p-4.p-md-5.mb-4.transparent-hero {
+    background: transparent !important;
+  }
+
+  /* Blumhouse: tarjeta transparente (quita fondo gris) */
+  .card.blumhouse-card {
+    background: transparent !important;
+    border: 1px solid rgba(255,255,255,0.06);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45); /* opcional: mantiene separación */
+  }
+  .card.blumhouse-card .card-body,
+  .card.blumhouse-card .card-footer {
+    background: transparent !important;
+  }
+  .card.blumhouse-card img {
+    background: transparent;
+    box-shadow: none;
+  }
+
+  /* Estilo para el bloque de detrás de cámaras */
+  .bts-block {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1.5rem;
+    border-radius: .5rem;
+    margin-bottom: 2rem;
+  }
+  .bts-block h5 {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+  .bts-block p {
+    font-size: .9rem;
+    color: #ddd;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<main class="container">
+  <!-- HERO con imagen + explicación -->
+  <div class="p-4 p-md-5 mb-4 text-white rounded transparent-hero">
+    <div class="row align-items-center">
+      <!-- Póster -->
+      <div class="col-md-5 text-center mb-4 mb-md-0">
+        <div class="poster-frame">
+          <img
+            src="{% static 'imagenes/Tita-candy-bar-Five-nights-at-freedys-kit-imprimible.png' %}"
+            alt="Póster Five Nights at Freddy's"
+            class="img-fluid"
+            width="420"
+            height="auto"
+          />
+        </div>
+      </div>
+      <!-- Texto -->
+      <div class="col-md-7 px-0">
+        <h1 class="display-4 fst-italic">Blog de Five Nights at Freddy’s</h1>
+        <p class="lead my-3">
+          En este espacio encontrarás un análisis más completo de las películas:
+          <strong>producción</strong>, <strong>lore</strong>,
+          <strong>expectativas</strong> y
+          <strong>estrategias de marketing</strong> que rodean al universo de
+          <em>Five Nights at Freddy’s</em>. Aquí se profundiza en los detalles
+          que van más allá de los tráilers, entregando contexto y curiosidades
+          para los fans.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reemplazo: Bloque compacto — Detrás de cámaras (YouTube) -->
+  <div class="row mb-4 align-items-center bts-block">
+    <!-- Video BTS embebido -->
+    <div class="col-md-6 mb-3 mb-md-0">
+      <div class="ratio ratio-16x9 shadow-sm rounded overflow-hidden">
+        <iframe
+          src="https://www.youtube.com/embed/qb2qekJsqvg"
+          title="Detrás de cámaras - Five Nights at Freddy's"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+
+    <!-- Descripción y CTA -->
+    <div class="col-md-6 text-white">
+      <h5 class="mb-2">Detrás de cámaras — producción y efectos</h5>
+      <p class="text-muted mb-3">
+        Material exclusivo del rodaje: pruebas de animatrónicos, maquillaje prostético,
+        utilería y el equipo técnico en acción. Observa cómo se combinan efectos prácticos
+        y diseño de producción para recrear la atmósfera del juego.
+      </p>
+  
+    </div>
+  </div>
+
+  <!-- Blog + Sidebar -->
+  <div class="row g-5">
+    <div class="col-md-8">
+      <h3 class="pb-4 mb-4 fst-italic border-bottom">Blumhouse Productions</h3>
+
+      <!-- PELÍCULA 1 -->
+      <article class="blog-post">
+        <h2 class="blog-post-title">Five Nights at Freddy's (película 1)</h2>
+        <p>
+          Dirigida por Emma Tammi, la primera película es un homenaje a la saga
+          creada por Scott Cawthon. Combina terror sobrenatural con drama
+          familiar, enfocándose en Mike Schmidt (Josh Hutcherson) y el oscuro
+          pasado de Freddy Fazbear’s Pizza.
+        </p>
+        <hr />
+
+        <h2>Lore de FNAF 1</h2>
+        <p>
+          Mike trabaja como guardia nocturno y descubre que los animatrónicos
+          cobran vida después del cierre: Freddy, Bonnie, Chica y Foxy. Están
+          poseídos por las almas de niños asesinados años atrás. El responsable:
+          el enigmático William Afton. En el juego el lore se revela
+          indirectamente; la película lo muestra con un enfoque más emocional.
+        </p>
+
+        <h3>Reparto</h3>
+        <div class="d-flex flex-wrap justify-content-center cast-list">
+          <div class="cast-card">
+            <img src="{% static 'imagenes/josh_hutcherson.png' %}" alt="Josh Hutcherson" class="cast-img">
+            <div class="cast-name">Josh Hutcherson</div>
+            <div class="cast-role">Mike Schmidt</div>
+          </div>
+
+          <div class="cast-card">
+            <img src="{% static 'imagenes/matthew_lillard.png' %}" alt="Matthew Lillard" class="cast-img">
+            <div class="cast-name">Matthew Lillard</div>
+            <div class="cast-role">William Afton</div>
+          </div>
+
+          <div class="cast-card">
+            <img src="{% static 'imagenes/elizabeth_lail.png' %}" alt="Elizabeth Lail" class="cast-img">
+            <div class="cast-name">Elizabeth Lail</div>
+            <div class="cast-role">Vanessa</div>
+          </div>
+
+          <div class="cast-card">
+            <img src="{% static 'imagenes/piper_rubio.png' %}" alt="Piper Rubio" class="cast-img">
+            <div class="cast-name">Piper Rubio</div>
+            <div class="cast-role">Abby Schmidt</div>
+          </div>
+        </div>
+
+        <h2>Producción</h2>
+        <p>
+          Producida por Blumhouse junto a Scott Cawthon. Rodaje en Nueva
+          Orleans. Estreno mundial el 27 de octubre de 2023. Éxito comercial:
+          más de 297M USD.
+        </p>
+
+        <h3>Expectativas</h3>
+        <p>
+          Los fans buscaban fidelidad al juego: tensión, atmósfera y respeto al
+          lore. La cinta entregó nostalgia, animatrónicos prácticos y guiños
+          directos, ganándose al público objetivo.
+        </p>
+
+        <h3>Marketing</h3>
+        <p>
+          Teasers enigmáticos, presencia fuerte en redes, colaboración con
+          creadores del fandom y estreno simultáneo en cines/streaming
+          impulsaron la conversación global y el rendimiento en taquilla.
+        </p>
+      </article>
+
+      <!-- PELÍCULA 2 -->
+      <article class="blog-post">
+        <h2 class="blog-post-title">Five Nights at Freddy's 2 (película)</h2>
+        <p>
+          La historia sigue a Jeremy Fitzgerald en una nueva ubicación de la
+          pizzería. La secuela promete un tono más oscuro, nuevos animatrónicos
+          y la continuidad de William Afton en el centro del misterio.
+        </p>
+        <hr />
+
+        <h2>Lore de FNAF 2</h2>
+        <p>
+          Aunque se llama “2”, es precuela de FNAF 1 y se ambienta en 1987.
+          Introduce animatrónicos renovados con reconocimiento facial y deja a
+          los viejos como repuestos. Explora el origen de la tragedia que marca
+          a la franquicia.
+        </p>
+
+        <h3>Reparto confirmado</h3>
+        <div class="d-flex flex-wrap justify-content-center cast-list">
+          <div class="cast-card">
+            <img src="{% static 'imagenes/josh_hutcherson.png' %}" alt="Josh Hutcherson" class="cast-img">
+            <div class="cast-name">Josh Hutcherson</div>
+            <div class="cast-role">Mike Schmidt</div>
+          </div>
+
+          <div class="cast-card">
+            <img src="{% static 'imagenes/elizabeth_lail.png' %}" alt="Elizabeth Lail" class="cast-img">
+            <div class="cast-name">Elizabeth Lail</div>
+            <div class="cast-role">Vanessa Shelly</div>
+          </div>
+
+          <div class="cast-card">
+            <img src="{% static 'imagenes/PiperRubioBIO.png' %}" alt="Piper Rubio" class="cast-img">
+            <div class="cast-name">Piper Rubio</div>
+            <div class="cast-role">Abby Schmidt</div>
+          </div>
+
+          <div class="cast-card">
+            <img src="{% static 'imagenes/matthew_lillard.png' %}" alt="Matthew Lillard" class="cast-img">
+            <div class="cast-name">Matthew Lillard</div>
+            <div class="cast-role">William Afton</div>
+          </div>
+        </div>
+
+        <h2>Producción</h2>
+        <p>
+          Rodaje: oct-2024 a feb-2025. Animatrónicos por Jim Henson's Creature
+          Shop.
+          <strong>Estreno previsto: 5 de diciembre de 2025.</strong>
+        </p>
+
+        <h3>Expectativas</h3>
+        <p>
+          El fandom espera una expansión del lore con más horror y conexiones
+          claras con los eventos de 1987. Se anticipa mayor presencia de Afton y
+          nuevas piezas del rompecabezas de la pizzería.
+        </p>
+
+        <h3>Marketing</h3>
+        <p>
+          Teaser presentado en ferias de cine, campaña digital enfocada en
+          nostalgia y misterio, y “Próximamente” como ancla de expectativa. Los
+          pósters y clips destacan el look práctico de los animatrónicos y el
+          tono más sombrío.
+        </p>
+      </article>
+    </div>
+
+    <!-- SIDEBAR: información compacta de Blumhouse -->
+    <aside class="col-md-4">
+      <div class="position-sticky" style="top: 6rem;">
+        <div class="card mb-3 text-center blumhouse-card text-white">
+           <div class="card-body">
+             <img src="{% static 'imagenes/Blumhouse.jpg' %}" alt="Blumhouse" class="img-fluid rounded mx-auto d-block mb-3" style="max-width:120px;">
+             <h6 class="mb-1">Blumhouse Productions</h6>
+             <p class="small text-muted mb-0">
+               Estudio estadounidense especializado en cine de horror y thrillers.
+               Fundada en 2000, famosa por producir películas de bajo presupuesto
+               con alto rendimiento comercial y por impulsar franquicias de género.
+             </p>
+           </div>
+          <div class="card-footer">
+             <a href="https://www.blumhouse.com" target="_blank" class="btn btn-sm btn-outline-light">Sitio oficial</a>
+           </div>
+         </div>
+       </div>
+     </aside>
+  </div>
+
+  <!-- ====== FILA de personajes ====== -->
+  <section class="mt-4 mb-5">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+      <!-- Freddy -->
+      <div class="col">
+        <div class="card character-card h-100 d-flex flex-column">
+          <div class="card-body">
+            <h5 class="card-title">freddy</h5>
+            <p class="card-text">
+              El animatrónico principal de la pizzería. Carismático de día, pero aterrador por la noche.
+            </p>
+          </div>
+          <img src="{% static 'imagenes/giffnaf.gif' %}" class="card-img-bottom character-img" alt="Freddy">
+        </div>
+      </div>
+      <!-- Chica -->
+      <div class="col">
+        <div class="card character-card h-100 d-flex flex-column">
+          <div class="card-body">
+            <h5 class="card-title">chica</h5>
+            <p class="card-text">
+              Siempre acompañada de su cupcake con ojos; en la película cobra vida y tiene momentos inquietantes.
+            </p>
+          </div>
+          <img src="{% static 'imagenes/giffnaf2.gif' %}" class="card-img-bottom character-img" alt="Chica">
+        </div>
+      </div>
+      <!-- Bonnie -->
+      <div class="col">
+        <div class="card character-card h-100 d-flex flex-column">
+          <div class="card-body">
+            <h5 class="card-title">bonnie</h5>
+            <p class="card-text">
+              El primero en activarse durante los turnos nocturnos; guiño directo al FNaF 1 original.
+            </p>
+          </div>
+          <img src="{% static 'imagenes/giffnaf4.gif' %}" class="card-img-bottom character-img" alt="Bonnie">
+        </div>
+      </div>
+      <!-- Foxy -->
+      <div class="col">
+        <div class="card character-card h-100 d-flex flex-column">
+          <div class="card-body">
+            <h5 class="card-title">foxy</h5>
+            <p class="card-text">
+              Su aparición es repentina, corriendo desde el fondo y replicando su jumpscare clásico.
+            </p>
+          </div>
+          <img src="{% static 'imagenes/giffnaf3.gif' %}" class="card-img-bottom character-img" alt="Foxy">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ====== /FILA de personajes ====== -->
+
+</main>
+{% endblock %}
+
+from django.shortcuts import render
+
+def search(request):
+    q = request.GET.get('q', '').strip()
+    # Aquí puedes filtrar posts; por ahora devolvemos la plantilla de resultados
+    return render(request, 'core/search_results.html', {'query': q})

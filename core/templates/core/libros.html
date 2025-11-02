@@ -1,0 +1,130 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block title %}Libros · turboneko{% endblock %}
+
+{% block content %}
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light" style="color:#fff;">Libros de FNAF</h1>
+      <p class="lead" style="color:#ddd;">Serie principal, Fazbear Frights, Pizzaplex y novelas gráficas.</p>
+    </div>
+  </div>
+</section>
+
+<div class="album py-5">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+      <!-- Card 1 -->
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="{% static 'imagenes/fnafl1.jpg' %}" alt="Libro 1" />
+          <div class="card-body">
+            <p class="card-text">
+              <strong>Escalofríos de Fazbear 1 – “El parque de bolas”.</strong> Tres relatos que conectan
+              con el universo FNAF: obsesiones, culpa y animatrónicos con “vida propia”.
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+              </div>
+              <small class="text-muted">224 páginas</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="{% static 'imagenes/fanfl2.jpg' %}" alt="Libro 2" />
+          <div class="card-body">
+            <p class="card-text">
+              <strong>Fazbear Frights #2 – “Fetch”.</strong> Un dispositivo “inteligente” empieza a cumplir
+              deseos de formas retorcidas; conexiones directas con el lore de la pizzería.
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+              </div>
+              <small class="text-muted">272 páginas</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="{% static 'imagenes/fanfl3.jpg' %}" alt="Libro 3" />
+          <div class="card-body">
+            <p class="card-text">
+              <strong>Fazbear Frights #3 – “1:35 A.M.”</strong> Objetos “poseídos” y llamadas nocturnas
+              que no deberías contestar; pistas sobre puppet y víctimas.
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+              </div>
+              <small class="text-muted">272 páginas</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="{% static 'imagenes/fanfl4.jpg' %}" alt="Libro 4" />
+          <div class="card-body">
+            <p class="card-text">
+              <strong>Fazbear Frights #4 – “Step Closer”.</strong> Hermanos, retos imprudentes y consecuencias
+              que persiguen; más guiños a los animatrónicos clásicos.
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+              </div>
+              <small class="text-muted">224 páginas</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="{% static 'imagenes/fanfl5.jpg' %}" alt="Libro 5" />
+          <div class="card-body">
+            <p class="card-text">
+              <strong>Fazbear Frights #5 – “Bunny Call”.</strong> Una broma “inofensiva” invoca algo que no
+              puedes controlar; ecos de Spring Bonnie.
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+              </div>
+              <small class="text-muted">240 páginas</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="{% static 'imagenes/fanfl6.jpg' %}" alt="Libro 6" />
+          <div class="card-body">
+            <p class="card-text">
+              <strong>Fazbear Frights #6 – “Blackbird”.</strong> Culpa, sombras y un perseguidor simbólico;
+              expande teorías sobre el “remnant”.
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+              </div>
+              <small class="text-muted">256 páginas</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</div><!-- /.album -->
+{% endblock %}

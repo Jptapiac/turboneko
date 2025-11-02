@@ -1,0 +1,165 @@
+{% extends "core/base.html" %}
+{% block title %}Preguntas Frecuentes · turboneko{% endblock %}
+{% block content %}
+<div class="container py-5">
+  <h1 class="mb-4">Preguntas Frecuentes</h1>
+
+  <div class="accordion" id="faq">
+
+    <!-- FAQ 1 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="q1">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#a1">
+          ¿De dónde salen las historias?
+        </button>
+      </h2>
+      <div id="a1" class="accordion-collapse collapse show" data-bs-parent="#faq">
+        <div class="accordion-body">
+          Nos basamos en la franquicia <strong>Five Nights at Freddy’s</strong> (juegos, libros y películas).
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ 2 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="q2">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2">
+          ¿Puedo aportar contenido?
+        </button>
+      </h2>
+      <div id="a2" class="accordion-collapse collapse" data-bs-parent="#faq">
+        <div class="accordion-body">
+          Sí, puedes enviarnos tus reseñas, teorías o imágenes relacionadas con FNAF y serán revisadas antes de publicarlas.
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ 3 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="q3">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3">
+          ¿Los juegos tienen clasificación por edad?
+        </button>
+      </h2>
+      <div id="a3" class="accordion-collapse collapse" data-bs-parent="#faq">
+        <div class="accordion-body">
+          Sí. La mayoría de los juegos de <em>Five Nights at Freddy’s</em> están recomendados para mayores de 12-14 años por su temática de terror.
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ 4 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="q4">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a4">
+          ¿Dónde puedo comprar los juegos?
+        </button>
+      </h2>
+      <div id="a4" class="accordion-collapse collapse" data-bs-parent="#faq">
+        <div class="accordion-body">
+          Los juegos están disponibles en <strong>Steam</strong> y también en consolas como PlayStation, Xbox y Nintendo Switch.
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ 5 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="q5">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a5">
+          ¿Cuántos juegos existen en la saga FNAF?
+        </button>
+      </h2>
+      <div id="a5" class="accordion-collapse collapse" data-bs-parent="#faq">
+        <div class="accordion-body">
+          Actualmente existen <strong>8 entregas principales</strong> incluyendo FNAF 1-4, Sister Location, Pizzeria Simulator, Help Wanted y Security Breach, además de spin-offs y juegos especiales.
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ 6 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="q6">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a6">
+          ¿Qué diferencia hay entre los juegos y las películas?
+        </button>
+      </h2>
+      <div id="a6" class="accordion-collapse collapse" data-bs-parent="#faq">
+        <div class="accordion-body">
+          Los juegos se centran en la jugabilidad de supervivencia y jumpscares, mientras que las películas expanden el <em>lore</em> con mayor detalle en la narrativa y personajes.
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ 7 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="q7">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a7">
+          ¿Habrá más películas de FNAF?
+        </button>
+      </h2>
+      <div id="a7" class="accordion-collapse collapse" data-bs-parent="#faq">
+        <div class="accordion-body">
+          Sí. Tras el éxito de la primera película (2023), <strong>Blumhouse</strong> confirmó que <em>Five Nights at Freddy’s 2</em> llegará el 5 de diciembre de 2025.
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ 8 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="q8">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a8">
+          ¿Existen libros de FNAF?
+        </button>
+      </h2>
+      <div id="a8" class="accordion-collapse collapse" data-bs-parent="#faq">
+        <div class="accordion-body">
+          Sí. La saga cuenta con varias novelas, como <em>The Silver Eyes</em>, <em>The Twisted Ones</em>, <em>The Fourth Closet</em> y la colección <strong>Fazbear Frights</strong>.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Sección de Reseñas -->
+  <hr class="my-5">
+  <h2 class="mb-4">Reseñas de la Comunidad</h2>
+
+  <!-- Formulario de reseñas (visual) -->
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Deja tu reseña</h5>
+      <form>
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Tu nombre</label>
+          <input type="text" class="form-control" id="nombre" placeholder="Escribe tu nombre">
+        </div>
+        <div class="mb-3">
+          <label for="comentario" class="form-label">Tu reseña</label>
+          <textarea class="form-control" id="comentario" rows="3" placeholder="Escribe tu opinión..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-danger">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Reseñas publicadas (ejemplo) -->
+  <div class="list-group">
+    <div class="list-group-item">
+      <h6 class="mb-1">Camila</h6>
+      <p class="mb-1">“El blog está increíble, me encantó la parte de lore y cómo explican la diferencia entre juegos y películas.”</p>
+      <small class="text-muted">⭐⭐⭐⭐⭐</small>
+    </div>
+    <div class="list-group-item">
+      <h6 class="mb-1">Esteban</h6>
+      <p class="mb-1">“Muy útil la sección de marketing, aprendí cosas que no sabía sobre cómo promocionaron las películas.”</p>
+      <small class="text-muted">⭐⭐⭐⭐</small>
+    </div>
+    <div class="list-group-item">
+      <h6 class="mb-1">Valentina</h6>
+      <p class="mb-1">“Me gustó que también incluyeran los libros, porque no mucha gente habla de ellos.”</p>
+      <small class="text-muted">⭐⭐⭐⭐⭐</small>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

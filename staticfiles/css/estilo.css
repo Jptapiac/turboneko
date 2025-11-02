@@ -1,0 +1,145 @@
+body {
+  background-image: url("../imagenes/fondo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #fff; /* texto claro por defecto */
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* antes: rgba(202, 1, 1, 0.521) */
+  background: linear-gradient(
+    to bottom,
+    rgba(40, 0, 0, 0.8),   /* vino oscuro arriba */
+    rgba(0, 0, 0, 0.9)     /* casi negro abajo */
+  );
+  z-index: -1;
+}
+
+/* Resto igual (cards, botones, etc) */
+.card {
+  background-color: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.card-body {
+  background: transparent;
+  color: #fff;
+}
+
+.card-text,
+.card-title,
+.text-muted,
+.btn-outline-secondary {
+  color: #fff !important;
+}
+
+.text-muted {
+  color: #bbb !important;
+}
+
+.album {
+  background-color: transparent !important;
+}
+
+.btn-outline-secondary {
+  border-color: #fff;
+  color: #fff !important;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #fff;
+  color: #000 !important;
+}
+/* === NAVBAR + LOGO (agregar al final) === */
+.custom-navbar {
+  background: rgba(10, 10, 10, 0.88);   /* negro translúcido que combina con tu overlay */
+  backdrop-filter: blur(2px);           /* leve blur para separarlo del carrusel */
+  padding: 0.4rem 1rem;                 /* altura contenida */
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+/* color de links en modo oscuro */
+.custom-navbar .nav-link {
+  color: #e8e8e8 !important;
+}
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link:focus,
+.custom-navbar .nav-link.active {
+  color: #ffd166 !important;           /* dorado en hover/activo */
+}
+
+/* marca: icono + texto */
+.logo-img {
+  height: 44px;                         /* tamaño del icono (ajusta 40–56px a gusto) */
+  width: auto;
+}
+.logo-text {
+  font-size: 1.35rem;                   /* nombre visible pero sin agrandar el navbar */
+  font-weight: 800;
+  letter-spacing: .5px;
+  color: #ffcc4d;                       /* dorado legible sobre fondo oscuro */
+  text-transform: lowercase;
+  line-height: 1;
+}
+.logo-text:hover { color: #ffe08a; }
+
+/* compensa la barra fija arriba (ajusta si cambias la altura del logo) */
+body { padding-top: 64px; }
+
+/* móviles: un poco más compacto */
+@media (max-width: 576px) {
+  .logo-img { height: 36px; }
+  .logo-text { font-size: 1.05rem; }
+  body { padding-top: 60px; }
+}
+
+
+  /* Imagen lateral de película */
+  .side-poster {
+    border-radius: .5rem;
+    box-shadow: 0 8px 22px rgba(0,0,0,.45);
+    width: 100%;
+    height: auto;
+  }
+
+  /* Tarjetas compactas de actores */
+  .actor-card {
+    background: rgba(0,0,0,.75);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: .75rem;
+    padding: .75rem;
+    display: flex;
+    gap: .75rem;
+    align-items: center;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .actor-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0,0,0,.35);
+  }
+  .actor-avatar {
+    width: 58px;
+    height: 58px;
+    object-fit: cover;
+    border-radius: .6rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,.35);
+  }
+  .actor-role {
+    margin: 0;
+    line-height: 1.15;
+  }
+  .actor-name {
+    margin: 0;
+    font-weight: 600;
+  }
+ 
+

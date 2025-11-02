@@ -4,15 +4,13 @@ Listo para desarrollo local y pruebas en LAN (0.0.0.0:8000).
 """
 
 from pathlib import Path
-import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'dev-secret-key-cambia-en-produccion'
-DEBUG = True  # en producción => False
-ALLOWED_HOSTS = ["*"]  # en producción coloca tu dominio/IP específica
+DEBUG = True
+ALLOWED_HOSTS = ["*"]
 
-# Apps instaladas
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -22,12 +20,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'crispy_bootstrap4',
-    'core',  # nuestra app
+    'core',
     'animatronics.apps.AnimatronicsConfig',
-    'contract.apps.ContractConfig',  # app de contacto
+    'contract.apps.ContractConfig',
 ]
 
-# Crispy Forms Config
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap4'
 
@@ -46,9 +43,8 @@ ROOT_URLCONF = 'turboneko.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # Usaremos carpeta "templates" a nivel del proyecto
         'DIRS': [BASE_DIR / 'templates'],
-        'APP_DIRS': True,  # permite templates dentro de las apps
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -63,7 +59,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'turboneko.wsgi.application'
 
-# Base de datos por defecto (sqlite)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -71,7 +66,6 @@ DATABASES = {
     }
 }
 
-# Password validators (puedes dejarlos así en desarrollo)
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',},
@@ -85,16 +79,12 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-# Archivos estáticos (CSS/JS/Imgs)
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']   # carpeta "static" del proyecto
-STATIC_ROOT = BASE_DIR / 'staticfiles'     # para collecstatic en producción
+STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# Archivos media (si más adelante los usaras)
+# ✅ tus imágenes están en /turboneko/media/
 MEDIA_URL = '/media/'
-# Si BASE_DIR es Path (Pathlib)
-MEDIA_ROOT = BASE_DIR / 'media'
-# Si BASE_DIR es string, usa:
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = BASE_DIR / 'turboneko' / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

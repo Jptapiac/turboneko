@@ -2,62 +2,95 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'animatronics/css/animatronics.css' %}?v=3">
+<link rel="stylesheet" href="{% static 'animatronics/css/animatronics.css' %}">
 {% endblock %}
 
 {% block content %}
 <div class="container py-5">
   <h2 class="mb-3 text-white">Animatronics</h2>
 
+  <!-- 🔹 FORMULARIO DE FILTROS -->
+  <form method="get" class="mb-4 d-flex flex-wrap gap-2">
+    <input
+      type="text"
+      name="category"
+      placeholder="Filtrar por categoría"
+      class="form-control w-auto bg-dark text-light border-warning"
+      value="{{ request.GET.category }}"
+    >
+    <input
+      type="text"
+      name="manufacturer"
+      placeholder="Filtrar por fabricante"
+      class="form-control w-auto bg-dark text-light border-warning"
+      value="{{ request.GET.manufacturer }}"
+    >
+    <button type="submit" class="btn btn-warning">Filtrar</button>
+    <a href="{% url 'animatronics:list' %}" class="btn btn-secondary">Limpiar</a>
+  </form>
+  <!-- 🔹 FIN FORMULARIO DE FILTROS -->
+
+  <!-- 🔹 LISTADO DE ANIMATRONICS -->
   <div class="row g-3">
     {% for item in page_obj.object_list %}
     <div class="col-12 col-md-6 col-lg-4">
-      <div class="card h-100 shadow-sm">
-
+      <div class="card h-100 shadow-sm bg-dark text-light border border-warning">
         {% if item.img %}
           <img src="{{ item.img.url }}" class="card-img-top" alt="{{ item.name }}">
         {% else %}
           <img src="{% static 'imagenes/placeholder.png' %}" class="card-img-top" alt="placeholder {{ item.name }}">
         {% endif %}
-
         <div class="card-body">
-          <h5 class="card-title">{{ item.name }}</h5>
-          <p class="card-text">{{ item.description|truncatewords:25 }}</p>
+          <h5 class="card-title text-warning">{{ item.name }}</h5>
+          <p class="card-text text-light">{{ item.description|truncatewords:25 }}</p>
         </div>
-
         <div class="card-footer small text-muted">
           Actualizado: {{ item.updated|date:"Y-m-d H:i" }}
         </div>
       </div>
     </div>
+
     {% empty %}
     <div class="col-12">
-      <div class="alert alert-info text-center">
-        <h4 class="text-white">No hay animatronics cargados</h4>
-        <p class="text-white">Los animatronics se cargarán próximamente.</p>
+      <div class="p-4 text-center rounded" style="background-color: #1a0000; border: 1px solid #ff6600;">
+        <h4 class="text-warning mb-2">No hay animatronics cargados</h4>
+        <p class="text-light">Los animatronics se cargarán próximamente.</p>
       </div>
     </div>
     {% endfor %}
   </div>
 
+  <!-- 🔹 Paginación -->
   <nav aria-label="Paginación" class="mt-4">
     <ul class="pagination justify-content-center">
       {% if page_obj.has_previous %}
-        <li class="page-item"><a class="page-link" href="?page=1">&laquo; Primero</a></li>
-        <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a></li>
+        <li class="page-item">
+          <a class="page-link bg-dark text-warning border-warning" href="?page=1">&laquo; Primero</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link bg-dark text-warning border-warning" href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+        </li>
       {% else %}
-        <li class="page-item disabled"><span class="page-link">&laquo; Primero</span></li>
-        <li class="page-item disabled"><span class="page-link">Anterior</span></li>
+        <li class="page-item disabled"><span class="page-link bg-secondary text-light">&laquo; Primero</span></li>
+        <li class="page-item disabled"><span class="page-link bg-secondary text-light">Anterior</span></li>
       {% endif %}
 
-      <li class="page-item active"><span class="page-link">Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span></li>
+      <li class="page-item active">
+        <span class="page-link bg-warning text-dark fw-bold">
+          Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+        </span>
+      </li>
 
       {% if page_obj.has_next %}
-        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Siguiente</a></li>
-        <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Última &raquo;</a></li>
+        <li class="page-item">
+          <a class="page-link bg-dark text-warning border-warning" href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link bg-dark text-warning border-warning" href="?page={{ page_obj.paginator.num_pages }}">Última &raquo;</a>
+        </li>
       {% else %}
-        <li class="page-item disabled"><span class="page-link">Siguiente</span></li>
-        <li class="page-item disabled"><span class="page-link">Última &raquo;</span></li>
+        <li class="page-item disabled"><span class="page-link bg-secondary text-light">Siguiente</span></li>
+        <li class="page-item disabled"><span class="page-link bg-secondary text-light">Última &raquo;</span></li>
       {% endif %}
     </ul>
   </nav>
